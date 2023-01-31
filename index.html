@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descuentos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Estadisticas</h1>
+    <p>Abre la consola del inspector de elementos</p>
+    <label>
+      <span>Agregar valor</span>
+      <form class="agregarDatosInput">
+        <input type="number" name="valor" id="valor" placeholder="Ingrese el valor a agregar">
+        <button class="agregarDatosButton">√</button>
+      </form>
+      <div class="datos">
+      </div>
+    </label>
+    <label>
+      <span>que deseas calculas?</span>
+      <select name="tipoDeCalculo" id="tipoDeCalculo">
+        <option value="promedio">promedio</option>
+        <option value="promedio">mediana</option>
+        <option value="promedio">moda</option>
+      </select>
+    </label>
+
+    <button id="calcular">Calcular</button>
+
+    <span id="resultado">Ingrese los datos para calcular</span>
+
+  </main>
+
+</body>
+<script src="main.js"></script>
+</html>

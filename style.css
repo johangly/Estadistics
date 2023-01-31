@@ -1,0 +1,125 @@
+:root{
+  --input-width:300px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body{
+  background-color: #fff;
+}
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+}
+label{
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+input{
+background: #ffffff;
+box-shadow: inset 10px 10px 19px #d9d9d9,
+        inset -10px -10px 19px #ffffff;
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  width: var(--input-width);
+  padding: 0 20px;
+}
+.agregarDatosInput{
+  position: relative;
+  width: 100%;
+}
+.agregarDatosInput button{
+  height: 25px;
+  position: absolute;
+  width: 25px;
+  right: 10px;
+  top: 50%;
+  transform: translate(0,-50%);
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  background: #59ff53;
+  box-shadow:  3px 3px 7px #d9d9d9,
+              -3px -3px 7px #ffffff;
+  cursor: pointer;
+
+}
+.agregarDatosInput input{
+  width: var(--input-width);
+}
+#tipoDeCalculo{
+  background: #ffffff;
+box-shadow: inset 10px 10px 19px #d9d9d9,
+        inset -10px -10px 19px #ffffff;
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  width: var(--input-width);
+  padding: 0 20px;
+}
+#calcular{
+background: #ffffff;
+box-shadow:  10px 10px 19px #d9d9d9,
+  -10px -10px 19px #ffffff;
+  border: none;
+  border-radius: 5px;
+  height: 45px;
+  width: var(--input-width);
+}
+#resultado{
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: 500;
+}
+.datos{
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  height: 200px;
+  overflow-y: auto;
+  background: #ffffff;
+box-shadow:  10px 10px 19px #d9d9d9,
+  -10px -10px 19px #ffffff;
+  border: none;
+  width: var(--input-width);
+}
+
+.datos__item{
+  position: relative;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  box-shadow:  5px 5px 9px #d9d9d9,
+  -5px -5px 9px #ffffff;
+}
+.datos__item > button{
+  height: 25px;
+  position: absolute;
+  width: 25px;
+  right: 10px;
+  top: 50%;
+  background-color: rgb(252, 90, 90);
+  transform: translate(0,-50%);
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  box-shadow:  3px 3px 7px #d9d9d9,
+              -3px -3px 7px #ffffff;
+  cursor: pointer;
+}
