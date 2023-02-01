@@ -33,7 +33,7 @@ agregarDatosButton.addEventListener('click',(e)=>{
 })
 calcularButton.addEventListener('click', ()=>{
   let tipo = tipoDeCalculo.value
-  if(arrayDatos.length > 0){
+  if(arrayDatos.length > 1){
     if(tipo === 'promedio'){
       let promedio = arrayDatos.reduce((current,value) =>{
         return Number(current) + Number(value)
@@ -43,10 +43,8 @@ calcularButton.addEventListener('click', ()=>{
     }
 
     if(tipo === 'mediana'){
-      let arrayOrdenado = arrayDatos.sort((a,b)=>{
-        return Number(a) - Number(b);
-      })
-      if(arrayDatos.length > 1){
+      
+      let arrayOrdenado = ordernarArray(arrayDatos);
         if(esPar(arrayDatos)){
           let indexPromedio1 = arrayOrdenado[arrayOrdenado.length / 2];
           let indexPromedio2 = arrayOrdenado[arrayOrdenado.length / 2 - 1];
@@ -58,13 +56,46 @@ calcularButton.addEventListener('click', ()=>{
           mostrarResultado.textContent = `La mediana es ${Number(medianaInPar).toFixed(2)}`;
           return medianaInPar.toFixed(2);
         }
-      }else{
-        mostrarResultado.textContent = `Se necesitas mas datos`;
-      }
     }
-    if(tipo === 'moda'){}
+    if(tipo === 'moda'){
+      let listaCount = {};
+      arrayDatos.forEach(element => {
+        if(listaCount[element]){
+          listaCount[element] += 1;
+        }else{
+          listaCount[element] = 1;
+        }
+      });
+      let major = {name: undefined,count: undefined};
+      for(const [key, value] of Object.entries(listaCount)){
+        if(major.count === undefined){
+          major = {name: key,count: value}
+        }else if(major.count < value){
+          major = {name: key,count: value}
+        }
+      }
+      for(const [key, value] of Object.entries(listaCount)){
+        if(key !== major.name && value === major.count){
+          major = false;
+        }  
+      }
+      if(major === false){
+        mostrarResultado.textContent = `No hay moda :(`;
+      }else{
+        mostrarResultado.textContent = `La moda es ${major.name} porque se encontro ${major.count} veces`;
+      }
+      return major.name;
+    }
+  }else{
+    mostrarResultado.textContent = `Se necesitas mas datos`;
   }
 });
+function ordernarArray(arr){
+  return arr.sort((a,b)=>{
+    return Number(a) - Number(b);
+  })
+}
+
 const borrarDato=(e)=>{
   // elimina el elemento del documento html
   e.target.parentElement.remove()
@@ -72,7 +103,6 @@ const borrarDato=(e)=>{
   let indexToDelete = arrayDatos.findIndex(element => element === value);
   // elimina el elemento de el array
   arrayDatos.splice(indexToDelete,1);
-  console.log('calculo',value, indexToDelete,arrayDatos)
 }
 function esPar(arr){
   if(arr.length % 2 === 0){
