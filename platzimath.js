@@ -26,7 +26,7 @@ PlatziMath.sumarElementos = function sumarElementos(arr){
 PlatziMath.calcularPromedio = function calcularPromedio(arr){
   let promedio = this.sumarElementos(arr) / arr.length;
   mostrarResultado.textContent = `El promedio es ${promedio.toFixed(2)}`
-  return promedio;
+  return Number(promedio.toFixed(2));
 }
 PlatziMath.calcularMediana = function calcularMediana(arr){
   let arrayOrdenado = PlatziMath.ordernarArray(arr);
@@ -156,4 +156,3 @@ const sumOfCredits = PlatziMath.sumarElementos(credits);
 
 const promedioPonderadoNotasConCreditos = sumOfNotesWithCredit / sumOfCredits;
 // console.log(promedioPonderadoNotasConCreditos,'promedioPonderadoNotasConCreditos');
-console.log(PlatziMath);
